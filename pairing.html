@@ -80,7 +80,7 @@
             }
 
             .title {
-                font-size: 30px;
+                font-size: 40px;
             }
 
             #pairing-name {
@@ -90,7 +90,7 @@
             #pairing-details {
                 margin-bottom: 20px;
 
-                font-size: 20px;
+                font-size: 30px;
             }
 
         </style>
@@ -117,21 +117,26 @@
             <div class="wrapper">
                 <div class="content">
 
-                    <div class="title">Coucou <span id="name"></span>! Tu as la chance d'offir un cadeau à</div>
+                    <div class="title">Coucou <span id="name"></span> ! Tu as la chance d'offir un cadeau à</div>
                     <script>document.getElementById('name').innerText = name</script>
 
-                    <div class="pairing">
-                        <div id="pairing-name"></div>
-                        <div id="pairing-details"></div>
-                        <script>
+                    <script>
+                        function reveal() {
                             document.getElementById('pairing-name').innerText = pairingDefinition[1];
+                            document.getElementById('pairing-name').style.display = 'block';
 
                             if (pairingDefinition[2]) {
                                 document.getElementById('pairing-details').innerText = pairingDefinition[2];
-                            } else {
-                                document.getElementById('pairing-details').style.display = 'none';
+                                document.getElementById('pairing-details').style.display = 'block';
                             }
-                        </script>
+                        }
+                    </script>
+
+                    <div class="pairing">
+                        <div id="pairing-name" onclick="reveal()">
+                            <i style="cursor: pointer;">Clique ici pour le savoir</i>
+                        </div>
+                        <div id="pairing-details" style="display: none;"></div>
                     </div>
 
                     <div class="title">Bonne chance ! 💪</div>
